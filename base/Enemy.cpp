@@ -1,3 +1,8 @@
+/*
+ * @Author: Hassen Rmili
+ * @Date: 2023-10-13 15:29:08
+ */
+
 #include "Enemy.h"
 
 Enemy::Enemy(const LoaderParams *params) : GameObjectSDL(params)

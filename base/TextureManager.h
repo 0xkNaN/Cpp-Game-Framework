@@ -1,3 +1,8 @@
+/*
+ * @Author: Hassen Rmili
+ * @Date: 2023-10-13 15:29:08
+ */
+
 #ifndef __TEXTURE_MANAGER__
 #define __TEXTURE_MANAGER__
 
@@ -6,9 +11,6 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-
-//? Defined As a singleton
-//? Singleton have its constructor as private
 
 class TextureManager
 {

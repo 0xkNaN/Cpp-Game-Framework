@@ -1,3 +1,8 @@
+/*
+ * @Author: Hassen Rmili
+ * @Date: 2023-10-13 15:29:08
+ */
+
 #ifndef __GAME_OBJECT__
 #define __GAME_OBJECT__
 

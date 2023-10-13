@@ -1,10 +1,7 @@
-//
-//  InputHandler.h
-//  SDL Game Programming Book
-//
-//  Created by Hassen Rmili on 12/10/2023.
-//  Copyright (c) 2013 Hassen Rmili. All rights reserved.
-//
+/*
+ * @Author: Hassen Rmili
+ * @Date: 2023-10-13 15:29:08
+ */
 
 #ifndef __InputHandler__
 #define __InputHandler__
