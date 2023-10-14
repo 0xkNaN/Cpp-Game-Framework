@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-09 22:45:32
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 00:19:45
+ * @Last Modified time: 2023-10-14 11:23:36
  */
 
 #include "Player.h"
@@ -24,7 +24,7 @@ void Player::update()
 
   handleInputs();
 
-  currFrame = int((SDL_GetTicks() / 100) % 4);
+  currFrame = int((SDL_GetTicks() / 100) % numFrames);
 
   GameObjectSDL::update();
 }

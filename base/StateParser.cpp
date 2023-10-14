@@ -2,10 +2,15 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-13 22:05:53
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:49:14
+ * @Last Modified time: 2023-10-14 11:08:55
  */
 
 #include "StateParser.h"
+
+#include "Game.h"
+#include "TextureManager.h"
+#include "LoaderParams.h"
+#include "GameObjectFactory.h"
 
 bool StateParser::parseState(const char *stateFile, std::string stateId, std::vector<std::string> *textureIds, std::vector<GameObject *> *objects)
 {
@@ -15,7 +20,8 @@ bool StateParser::parseState(const char *stateFile, std::string stateId, std::ve
   //? Load the state file
   if (!xmlDOC.LoadFile(stateFile))
   {
-    std::cout << xmlDOC.ErrorDesc() << "\n";
+    // std::cout << xmlDOC.ErrorDesc() << "\n";
+    std::cout << "XML PARSER ERROR\n";
     return false;
   }
 
@@ -36,9 +42,10 @@ bool StateParser::parseState(const char *stateFile, std::string stateId, std::ve
   TiXmlElement *textureRoot = 0;
   for (TiXmlElement *e = stateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
   {
-    if (e->Value() == "textures")
+    if (e->Value() == std::string("textures"))
     {
       textureRoot = e;
+      break;
     }
   }
   // ...
@@ -48,9 +55,10 @@ bool StateParser::parseState(const char *stateFile, std::string stateId, std::ve
   TiXmlElement *objectRoot = 0;
   for (TiXmlElement *e = stateRoot->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
   {
-    if (e->Value() == "objects")
+    if (e->Value() == std::string("objects"))
     {
-      textureRoot = e;
+      objectRoot = e;
+      break;
     }
   }
   // ...
@@ -66,9 +74,8 @@ void StateParser::parseTextures(TiXmlElement *stateRoot, std::vector<std::string
     std::string filename = e->Attribute("filename");
     std::string textureId = e->Attribute("id");
 
-    TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), filename, textureId);
-
     textureIds->push_back(textureId);
+    TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), filename, textureId);
   }
 }
 

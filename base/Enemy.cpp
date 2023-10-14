@@ -2,26 +2,28 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-09 23:48:09
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:57:26
+ * @Last Modified time: 2023-10-14 11:31:18
  */
 
 #include "Enemy.h"
 
 Enemy::Enemy() : GameObjectSDL()
 {
-  //? Random Movement
-  velocity.setX(1);
-  velocity.setY(2);
 }
 
 void Enemy::load(const LoaderParams *params)
 {
   GameObjectSDL::load(params);
+
+  velocity.setX(1);
+  velocity.setY(2);
 }
 
 void Enemy::update()
 {
-  currFrame = int((SDL_GetTicks() / 100) % 4);
+  GameObjectSDL::update();
+
+  currFrame = int((SDL_GetTicks() / 100) % numFrames);
 
   if (position.getY() < 10)
   {
@@ -40,8 +42,6 @@ void Enemy::update()
   {
     velocity.setX(-1);
   }
-
-  GameObjectSDL::update();
 }
 
 void Enemy::draw()

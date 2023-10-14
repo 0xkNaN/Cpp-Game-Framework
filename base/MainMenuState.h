@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-12 20:54:17
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 09:55:19
+ * @Last Modified time: 2023-10-14 10:50:49
  */
 
 #ifndef __MainMenuState__
@@ -10,6 +10,7 @@
 
 #include <vector>
 
+#include "Game.h"
 #include "MenuState.h"
 #include "StateParser.h"
 #include "GameObject.h"

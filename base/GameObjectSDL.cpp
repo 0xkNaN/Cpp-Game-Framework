@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-10 23:06:20
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:58:14
+ * @Last Modified time: 2023-10-14 11:27:05
  */
 
 #include "GameObjectSDL.h"
@@ -27,7 +27,6 @@ void GameObjectSDL::load(const LoaderParams *params)
   currRow = 1;
   currFrame = 1;
   numFrames = params->getNumFrames();
-  animSpeed = params->getAnimSpeed();
 }
 
 void GameObjectSDL::update()
