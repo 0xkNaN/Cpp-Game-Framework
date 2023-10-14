@@ -11,9 +11,6 @@
 #include <iostream>
 #include <vector>
 
-// #include "../vendor/tinyxml/tinyxml.h"
-// #include "tinyxml/tinyxml.h"
-
 #include "include/tinyxml.h"
 
 class GameObject;

@@ -1,0 +1,54 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Block1.tsx": {
+            "scaleInDock": 1.2495,
+            "scaleInEditor": 1.6569
+        },
+        "Block2.tsx": {
+            "scaleInDock": 2.8745,
+            "scaleInEditor": 1
+        },
+        "Block3.tsx": {
+            "scaleInDock": 0.7671,
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "scale": 1.212,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 349.83498349834986,
+                "y": 293.3168316831683
+            }
+        }
+    },
+    "last.exportedFilePath": "/home/devx/kNaN/600_games/sdl/the_book/assets/maps",
+    "last.imagePath": "/home/devx/kNaN/600_games/sdl/the_book/assets/maps",
+    "map.height": 15,
+    "map.lastUsedExportFilter": "Tiled map files (*.tmx *.xml)",
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": "3",
+    "map.width": 20,
+    "openFiles": [
+        "map.tmx",
+        "Block1.tsx",
+        "Block2.tsx",
+        "Block3.tsx"
+    ],
+    "project": "demo-project.tiled-project",
+    "recentFiles": [
+        "Block3.tsx",
+        "Block2.tsx",
+        "Block1.tsx",
+        "map.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 2,
+    "tileset.spacing": 2
+}
