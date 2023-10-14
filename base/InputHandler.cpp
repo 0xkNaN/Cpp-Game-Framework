@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-11 21:31:10
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 00:01:48
  */
 
 #include "InputHandler.h"
@@ -74,6 +76,7 @@ void InputHandler::update()
 
 void InputHandler::clean()
 {
+  //? Clear Joystick
   if (isJoysticksInit)
   {
     for (unsigned int i = 0; i < SDL_NumJoysticks(); i++)
@@ -126,8 +129,6 @@ void InputHandler::initJoysticks()
   else
   {
     isJoysticksInit = false;
-
-    std::cout << "Initialised 0 joystick(s)\n";
   }
 }
 

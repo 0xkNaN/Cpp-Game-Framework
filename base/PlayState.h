@@ -1,18 +1,22 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-12 20:59:56
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:59:59
  */
 
 #ifndef __PlayState__
 #define __PlayState__
 
+#include <vector>
+
 #include "Game.h"
 #include "GameState.h"
-#include "LoaderParams.h"
+#include "InputHandler.h"
+#include "StateParser.h"
+#include "TextureManager.h"
 #include "GameObject.h"
 #include "GameObjectSDL.h"
-#include "InputHandler.h"
-#include "TextureManager.h"
 
 class PlayState : public GameState
 {

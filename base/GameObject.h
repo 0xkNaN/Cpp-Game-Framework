@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-09 22:13:31
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:57:53
  */
 
 #ifndef __GAME_OBJECT__
@@ -15,8 +17,10 @@ public:
   virtual void draw() = 0;
   virtual void clean() = 0;
 
+  virtual void load(const LoaderParams *params) = 0;
+
 protected:
-  GameObject(const LoaderParams *params) {}
+  GameObject() {}
   virtual ~GameObject() {}
 };
 

@@ -1,17 +1,17 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-08 18:18:57
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 10:19:48
  */
 
-#include "Game.h"
-
 #include "constants.h"
-#include "TextureManager.h"
+#include "Game.h"
 #include "InputHandler.h"
-#include "LoaderParams.h"
+#include "MainMenuState.h"
 
-#include "MenuState.h"
-
+#include "MenuButton.h"
+#include "AnimatedGraphic.h"
 #include "Player.h"
 #include "Enemy.h"
 
@@ -49,15 +49,18 @@ bool Game::init(const char *title)
     SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
   }
 
-  //? Init InputHandler
-  TheInputHandler::Instance()->initJoysticks();
+  //? Register Factories
+  TheGameObjectFactory::Instance()->registerType("MenuButton", new MenuButtonCreator());
+  TheGameObjectFactory::Instance()->registerType("AnimatedGraphic", new AnimatedGraphicCreator());
+  TheGameObjectFactory::Instance()->registerType("Player", new PlayerCreator());
+  TheGameObjectFactory::Instance()->registerType("Enemy", new EnemyCreator());
 
   //? Init GameStateMachine
   gameStateMachine = new GameStateMachine();
-  gameStateMachine->changeState(new MenuState());
+  gameStateMachine->changeState(new MainMenuState());
 
-  //? Load Texture using TextureManager
-  TextureManager::Instance()->load(this->renderer, "assets/animate.png", "animate");
+  //? Init InputHandler
+  TheInputHandler::Instance()->initJoysticks();
 
   //? Game Loop
   this->isRunning = true;

@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-11 00:30:22
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:59:22
  */
 
 #ifndef __VECTOR_2D__
@@ -11,6 +13,12 @@
 class Vector2D
 {
 public:
+  Vector2D()
+  {
+    x = 0;
+    y = 0;
+  }
+
   Vector2D(float x, float y) : x(x), y(y) {}
 
   float getX() { return x; }
@@ -21,11 +29,7 @@ public:
 
   float length() { return sqrt(x * x + y * y); }
 
-  Vector2D operator+(const Vector2D &v2) const
-  {
-    return Vector2D(x + v2.x, y + v2.y);
-  }
-
+  Vector2D operator+(const Vector2D &v2) const { return Vector2D(x + v2.x, y + v2.y); }
   friend Vector2D &operator+=(Vector2D &v1, const Vector2D &v2)
   {
     v1.x += v2.x;
@@ -33,23 +37,7 @@ public:
     return v1;
   }
 
-  Vector2D operator*(float s)
-  {
-    return Vector2D(x * s, y * s);
-  }
-
-  Vector2D &operator*=(float s)
-  {
-    x *= s;
-    y *= s;
-    return *this;
-  }
-
-  Vector2D operator-(const Vector2D &v2) const
-  {
-    return Vector2D(x - v2.x, y - v2.y);
-  }
-
+  Vector2D operator-(const Vector2D &v2) const { return Vector2D(x - v2.x, y - v2.y); }
   friend Vector2D &operator-=(Vector2D &v1, const Vector2D &v2)
   {
     v1.x -= v2.x;
@@ -57,11 +45,15 @@ public:
     return v1;
   }
 
-  Vector2D operator/(float s)
+  Vector2D operator*(float s) { return Vector2D(x * s, y * s); }
+  Vector2D &operator*=(float s)
   {
-    return Vector2D(x / s, y / s);
+    x *= s;
+    y *= s;
+    return *this;
   }
 
+  Vector2D operator/(float s) { return Vector2D(x / s, y / s); }
   Vector2D &operator/=(float s)
   {
     x /= s;

@@ -1,14 +1,15 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-13 12:10:36
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 10:30:10
  */
 
 #include "PauseState.h"
-
-#include "MenuState.h"
+#include "MainMenuState.h"
 #include "MenuButton.h"
 
-const std::string PauseState::pauseId = "PAUSE_MENU";
+const std::string PauseState::pauseId = "pause";
 
 void PauseState::update()
 {
@@ -29,21 +30,12 @@ void PauseState::render()
 bool PauseState::onEnter()
 {
 
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/menu/main.png", "mainbutton"))
-  {
-    return false;
-  }
-
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/menu/resume.png", "resumebutton"))
-  {
-    return false;
-  }
-
-  GameObject *mainButton = new MenuButton(new LoaderParams(260, 80, 200, 80, "mainbutton"), pauseToMain);
-  GameObject *resumeButton = new MenuButton(new LoaderParams(260, 230, 200, 80, "resumebutton"), resumePlay);
-
-  gameObjects.push_back(mainButton);
-  gameObjects.push_back(resumeButton);
+  StateParser stateParser;
+  stateParser.parseState("test.xml", pauseId, &textureIdList, &gameObjects);
+  callbacks.push_back(0);
+  callbacks.push_back(pauseToMain);
+  callbacks.push_back(resumePlay);
+  setCallbacks(callbacks);
 
   return true;
 }
@@ -57,15 +49,29 @@ bool PauseState::onExit()
 
   gameObjects.clear();
 
-  TheTextureManager::Instance()->clearTexture("mainbutton");
-  TheTextureManager::Instance()->clearTexture("resumebutton");
+  for (int i = 0; i < textureIdList.size(); i++)
+  {
+    TheTextureManager::Instance()->clearTexture(textureIdList[i]);
+  }
 
   return true;
 }
 
+void PauseState::setCallbacks(const std::vector<Callback> &callbacks)
+{
+  for (int i = 0; i < gameObjects.size(); i++)
+  {
+    if (dynamic_cast<MenuButton *>(gameObjects[i]))
+    {
+      MenuButton *button = dynamic_cast<MenuButton *>(gameObjects[i]);
+      button->setCallback(callbacks[button->getCallbackId()]);
+    }
+  }
+}
+
 void PauseState::pauseToMain()
 {
-  TheGame::Instance()->getStateMachine()->changeState(new MenuState());
+  TheGame::Instance()->getStateMachine()->changeState(new MainMenuState());
 }
 
 void PauseState::resumePlay()

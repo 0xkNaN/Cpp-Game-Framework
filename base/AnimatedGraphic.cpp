@@ -1,16 +1,19 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-13 13:10:08
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:57:08
  */
 
 #include "AnimatedGraphic.h"
 
-AnimatedGraphic::AnimatedGraphic(const LoaderParams *params, int animSpeed) : GameObjectSDL(params), animSpeed(animSpeed)
+AnimatedGraphic::AnimatedGraphic() : GameObjectSDL()
 {
 }
 
-AnimatedGraphic::~AnimatedGraphic()
+void AnimatedGraphic::load(const LoaderParams *params)
 {
+  GameObjectSDL::load(params);
 }
 
 void AnimatedGraphic::update()

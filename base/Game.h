@@ -1,19 +1,18 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-08 17:39:26
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:57:47
  */
 
 #ifndef __Game__
 #define __Game__
 
 #include <iostream>
-#include <vector>
-
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 
 #include "GameStateMachine.h"
-#include "GameObject.h"
+#include "GameObjectFactory.h"
 
 class Game
 {
@@ -28,11 +27,8 @@ public:
   bool init(const char *title);
 
   void handleEvents();
-
   void update();
-
   void render();
-
   void clean();
 
   bool running() { return isRunning; }
@@ -44,16 +40,13 @@ public:
 private:
   Game() {}
 
+  static Game *instance;
+  bool isRunning;
+
   SDL_Window *window = nullptr;
   SDL_Renderer *renderer = nullptr;
 
   GameStateMachine *gameStateMachine;
-
-  std::vector<GameObject *> gameObjects;
-
-  bool isRunning;
-
-  static Game *instance;
 };
 
 typedef Game TheGame;

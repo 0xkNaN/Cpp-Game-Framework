@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-12 21:09:04
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:58:53
  */
 
 #ifndef __GameStateMachine__
@@ -15,6 +17,10 @@ class GameStateMachine
 {
 
 public:
+  void update();
+  void render();
+  void clean();
+
   //? Add New State without removing the old State
   void pushState(GameState *state);
 
@@ -23,10 +29,6 @@ public:
 
   //? Remove Current state without adding a new State
   void popState();
-
-  void update();
-  void render();
-  void clean();
 
   std::vector<GameState *> getGameStates() const { return gameStates; }
 

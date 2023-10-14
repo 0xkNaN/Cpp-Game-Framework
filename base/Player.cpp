@@ -1,14 +1,20 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-09 22:45:32
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 00:19:45
  */
 
 #include "Player.h"
-
 #include "InputHandler.h"
 
-Player::Player(const LoaderParams *params) : GameObjectSDL(params)
+Player::Player()
 {
+}
+
+void Player::load(const LoaderParams *params)
+{
+  GameObjectSDL::load(params);
 }
 
 void Player::update()

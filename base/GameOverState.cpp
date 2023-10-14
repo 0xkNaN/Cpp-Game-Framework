@@ -1,16 +1,18 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-13 13:18:38
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 10:31:57
  */
 
 #include "GameOverState.h"
 
-#include "MenuState.h"
+#include "MainMenuState.h"
 #include "PlayState.h"
 #include "MenuButton.h"
 #include "AnimatedGraphic.h"
 
-const std::string GameOverState::gameOverId = "GAME_OVER";
+const std::string GameOverState::gameOverId = "over";
 
 void GameOverState::update()
 {
@@ -30,27 +32,16 @@ void GameOverState::render()
 
 bool GameOverState::onEnter()
 {
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/menu/gameover.png", "gameOverText"))
-  {
-    return false;
-  }
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/menu/main.png", "mainButton"))
-  {
-    return false;
-  }
+  //? Parse State from Data File
+  StateParser stateParser;
+  stateParser.parseState("test.xml", gameOverId, &textureIdList, &gameObjects);
 
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/menu/restart.png", "restartButton"))
-  {
-    return false;
-  }
-
-  GameObject *gameOverText = new AnimatedGraphic(new LoaderParams(280, 50, 190, 30, "gameOverText"), 2);
-  GameObject *mainButton = new MenuButton(new LoaderParams(270, 180, 200, 80, "mainButton"), gameOverToMain);
-  GameObject *restartButton = new MenuButton(new LoaderParams(270, 280, 200, 80, "restartButton"), restartPlay);
-
-  gameObjects.push_back(gameOverText);
-  gameObjects.push_back(mainButton);
-  gameObjects.push_back(restartButton);
+  //? Set Callbaks
+  callbacks.push_back(0); //? empty
+  callbacks.push_back(gameOverToMain);
+  callbacks.push_back(restartPlay);
+  // ...
+  setCallbacks(callbacks);
 
   return true;
 }
@@ -64,16 +55,29 @@ bool GameOverState::onExit()
 
   gameObjects.clear();
 
-  TheTextureManager::Instance()->clearTexture("gameOverText");
-  TheTextureManager::Instance()->clearTexture("mainButton");
-  TheTextureManager::Instance()->clearTexture("restartButton");
+  for (int i = 0; i < textureIdList.size(); i++)
+  {
+    TheTextureManager::Instance()->clearTexture(textureIdList[i]);
+  }
 
   return true;
 }
 
+void GameOverState::setCallbacks(const std::vector<Callback> &callbacks)
+{
+  for (int i = 0; i < gameObjects.size(); i++)
+  {
+    if (dynamic_cast<MenuButton *>(gameObjects[i]))
+    {
+      MenuButton *button = dynamic_cast<MenuButton *>(gameObjects[i]);
+      button->setCallback(callbacks[button->getCallbackId()]);
+    }
+  }
+}
+
 void GameOverState::gameOverToMain()
 {
-  TheGame::Instance()->getStateMachine()->changeState(new MenuState());
+  TheGame::Instance()->getStateMachine()->changeState(new MainMenuState());
 }
 
 void GameOverState::restartPlay()

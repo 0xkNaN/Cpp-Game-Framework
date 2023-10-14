@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-11 21:26:12
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 00:01:38
  */
 
 #ifndef __InputHandler__
@@ -30,7 +32,6 @@ public:
   }
 
   void update();
-  void reset();
   void clean();
 
   //? Joystick Events

@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-12 20:54:17
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 09:39:49
  */
 
 #ifndef __MenuState__
@@ -8,32 +10,15 @@
 
 #include <vector>
 
-#include "Game.h"
 #include "GameState.h"
-#include "LoaderParams.h"
-#include "GameObject.h"
-#include "TextureManager.h"
-
-#include "PlayState.h"
-#include "MenuButton.h"
 
 class MenuState : public GameState
 {
-public:
-  virtual void update();
-  virtual void render();
+protected:
+  typedef void (*Callback)();
+  virtual void setCallbacks(const std::vector<Callback> &callbacks) = 0;
 
-  virtual bool onEnter();
-  virtual bool onExit();
-
-  virtual std::string getStateId() const { return menuId; }
-
-private:
-  static const std::string menuId;
-  std::vector<GameObject *> gameObjects;
-
-  static void menuToPlay();
-  static void exitFromMenu();
+  std::vector<Callback> callbacks;
 };
 
 #endif

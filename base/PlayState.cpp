@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-12 21:00:09
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 10:17:38
  */
 
 #include "PlayState.h"
@@ -13,7 +15,7 @@
 #include "Player.h"
 #include "Enemy.h"
 
-const std::string PlayState::playId = "PLAY_LEVEL_1";
+const std::string PlayState::playId = "play";
 
 void PlayState::update()
 {
@@ -29,9 +31,11 @@ void PlayState::update()
   }
 
   //? Change State to GameOverState when Collession
-  if (checkCollision(
-          dynamic_cast<GameObjectSDL *>(gameObjects[0]),
-          dynamic_cast<GameObjectSDL *>(gameObjects[1])))
+  GameObjectSDL *player = dynamic_cast<GameObjectSDL *>(gameObjects[0]);
+  GameObjectSDL *enemy1 = dynamic_cast<GameObjectSDL *>(gameObjects[1]);
+  GameObjectSDL *enemy2 = dynamic_cast<GameObjectSDL *>(gameObjects[2]);
+
+  if (checkCollision(player, enemy1) || checkCollision(player, enemy2))
   {
     TheGame::Instance()->getStateMachine()->pushState(new GameOverState());
   }
@@ -47,21 +51,9 @@ void PlayState::render()
 
 bool PlayState::onEnter()
 {
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/helicopter.png", "helicopter"))
-  {
-    return false;
-  }
-
-  if (!TheTextureManager::Instance()->load(TheGame::Instance()->getRenderer(), "assets/helicopter2.png", "helicopterEnemy"))
-  {
-    return false;
-  }
-
-  GameObject *player = new Player(new LoaderParams(400, 50, 128, 55, "helicopter"));
-  gameObjects.push_back(player);
-
-  GameObject *enemy = new Enemy(new LoaderParams(50, 50, 128, 55, "helicopterEnemy"));
-  gameObjects.push_back(enemy);
+  //? Parse State from Data File
+  StateParser stateParser;
+  stateParser.parseState("test.xml", playId, &textureIdList, &gameObjects);
 
   return true;
 }
@@ -75,7 +67,10 @@ bool PlayState::onExit()
 
   gameObjects.clear();
 
-  TheTextureManager::Instance()->clearTexture("helicopter");
+  for (int i = 0; i < textureIdList.size(); i++)
+  {
+    TheTextureManager::Instance()->clearTexture(textureIdList[i]);
+  }
 
   return true;
 }

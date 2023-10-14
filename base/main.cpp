@@ -1,10 +1,12 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-07 22:34:21
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 00:01:23
  */
 
-#include "Game.h"
 #include "constants.h"
+#include "Game.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +15,7 @@ int main(int argc, char *argv[])
   //? Init
   if (TheGame::Instance()->init("Chapter 0"))
   {
-    std::cout << "game init success!\n";
+    std::cout << "__GAME__INI__\n";
 
     //? Game loop
     while (TheGame::Instance()->running())
@@ -26,9 +28,9 @@ int main(int argc, char *argv[])
 
       frameTime = SDL_GetTicks() - frameStart;
 
-      if (frameTime < FRAME_TIME)
+      if (frameTime < FRAME_RATE)
       {
-        SDL_Delay((int)(FRAME_TIME - frameTime));
+        SDL_Delay((int)(FRAME_RATE - frameTime));
       }
     }
   }
@@ -40,5 +42,6 @@ int main(int argc, char *argv[])
 
   //? Cleanup
   TheGame::Instance()->clean();
+  std::cout << "__GAME__OUT__\n";
   return 0;
 }

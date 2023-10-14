@@ -1,17 +1,22 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-12 22:04:10
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 00:01:17
  */
 
 #include "MenuButton.h"
 
-MenuButton::MenuButton(const LoaderParams *params, void (*callback)()) : GameObjectSDL(params), callback(callback)
+MenuButton::MenuButton() : GameObjectSDL()
 {
   currFrame = MOUSE_OUT;
 }
 
-MenuButton::~MenuButton()
+void MenuButton::load(const LoaderParams *params)
 {
+  GameObjectSDL::load(params);
+  callbackId = params->getCallbackId();
+  currFrame = MOUSE_OUT;
 }
 
 void MenuButton::draw()
@@ -21,6 +26,7 @@ void MenuButton::draw()
 
 void MenuButton::update()
 {
+
   Vector2D *mousePos = TheInputHandler::Instance()->getMousePosition();
 
   if (

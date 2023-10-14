@@ -1,18 +1,22 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-09 23:48:09
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-13 23:57:26
  */
 
 #include "Enemy.h"
 
-Enemy::Enemy(const LoaderParams *params) : GameObjectSDL(params)
+Enemy::Enemy() : GameObjectSDL()
 {
-  //? Find the Player
-  //! player
-
   //? Random Movement
   velocity.setX(1);
   velocity.setY(2);
+}
+
+void Enemy::load(const LoaderParams *params)
+{
+  GameObjectSDL::load(params);
 }
 
 void Enemy::update()

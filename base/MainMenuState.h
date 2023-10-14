@@ -1,22 +1,22 @@
 /**
  * @Author: Hassen Rmili
- * @Date:   2023-10-13 12:10:29
+ * @Date:   2023-10-12 20:54:17
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 10:22:43
+ * @Last Modified time: 2023-10-14 09:55:19
  */
 
-#ifndef __PauseState__
-#define __PauseState__
+#ifndef __MainMenuState__
+#define __MainMenuState__
 
-#include <iostream>
 #include <vector>
 
 #include "MenuState.h"
 #include "StateParser.h"
 #include "GameObject.h"
 #include "TextureManager.h"
+#include "MenuButton.h"
 
-class PauseState : public MenuState
+class MainMenuState : public MenuState
 {
 public:
   virtual void update();
@@ -25,16 +25,16 @@ public:
   virtual bool onEnter();
   virtual bool onExit();
 
-  virtual std::string getStateId() const { return pauseId; }
+  virtual std::string getStateId() const { return menuId; }
 
 private:
-  static const std::string pauseId;
+  static const std::string menuId;
   std::vector<GameObject *> gameObjects;
 
   virtual void setCallbacks(const std::vector<Callback> &callbacks);
 
-  static void pauseToMain();
-  static void resumePlay();
+  static void menuToPlay();
+  static void exitFromMenu();
 };
 
 #endif

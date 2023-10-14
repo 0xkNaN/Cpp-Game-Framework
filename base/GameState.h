@@ -1,6 +1,8 @@
-/*
+/**
  * @Author: Hassen Rmili
- * @Date: 2023-10-13 15:29:08
+ * @Date:   2023-10-12 20:39:03
+ * @Last Modified by:   Hassen Rmili
+ * @Last Modified time: 2023-10-14 02:21:38
  */
 
 #ifndef __GameState__
@@ -24,10 +26,7 @@ public:
   virtual std::string getStateId() const = 0;
 
 protected:
-  GameState() : loadingComplete(false), exiting(false) {}
-
-  bool loadingComplete;
-  bool exiting;
+  GameState() {}
 
   std::vector<std::string> textureIdList;
 };
