@@ -2,11 +2,11 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-11 21:26:12
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 00:01:38
+ * @Last Modified time: 2023-10-14 20:34:21
  */
 
-#ifndef __InputHandler__
-#define __InputHandler__
+#ifndef __INPUTHANDLER_H__
+#define __INPUTHANDLER_H__
 
 #include <iostream>
 #include <vector>
@@ -83,4 +83,4 @@ private:
 
 typedef InputHandler TheInputHandler;
 
-#endif /* defined(__InputHandler__) */
+#endif /* __INPUTHANDLER_H__ */

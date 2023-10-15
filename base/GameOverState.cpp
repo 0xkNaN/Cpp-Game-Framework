@@ -2,11 +2,12 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-13 13:18:38
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 11:17:32
+ * @Last Modified time: 2023-10-14 21:19:30
  */
 
 #include "GameOverState.h"
 
+#include "TextureManager.h"
 #include "MainMenuState.h"
 #include "PlayState.h"
 #include "MenuButton.h"

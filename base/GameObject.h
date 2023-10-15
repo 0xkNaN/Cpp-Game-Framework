@@ -2,12 +2,11 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-09 22:13:31
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:57:53
+ * @Last Modified time: 2023-10-14 21:36:35
  */
 
-#ifndef __GAME_OBJECT__
-#define __GAME_OBJECT__
-
+#ifndef __GameObject_h__
+#define __GameObject_h__
 #include "LoaderParams.h"
 
 class GameObject

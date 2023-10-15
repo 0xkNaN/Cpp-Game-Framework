@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-13 13:10:08
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 11:27:27
+ * @Last Modified time: 2023-10-14 21:06:10
  */
 
 #include "AnimatedGraphic.h"

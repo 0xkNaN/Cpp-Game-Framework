@@ -2,11 +2,11 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-13 19:51:22
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:58:08
+ * @Last Modified time: 2023-10-14 21:13:28
  */
 
-#ifndef __GameObjectFactory__
-#define __GameObjectFactory__
+#ifndef __GameObjectFactory_h__
+#define __GameObjectFactory_h__
 
 #include "map"
 #include "string"

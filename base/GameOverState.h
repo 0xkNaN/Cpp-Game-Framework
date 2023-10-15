@@ -2,18 +2,18 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-13 13:18:28
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 10:28:04
+ * @Last Modified time: 2023-10-14 21:20:51
  */
 
-#ifndef __GameOverState__
-#define __GameOverState__
+#ifndef __GameOverState_h__
+#define __GameOverState_h__
 
 #include <iostream>
 #include <vector>
-
 #include "MenuState.h"
-#include "GameObject.h"
-#include "TextureManager.h"
+// #include "GameObject.h"
+
+class GameObject;
 
 class GameOverState : public MenuState
 {

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
  <editorsettings>
-  <export target="blues.xml" format="tmx"/>
+  <export target="export.xml" format="tmx"/>
  </editorsettings>
  <tileset firstgid="1" source="Block1.tsx"/>
  <tileset firstgid="199" source="Block2.tsx"/>
  <tileset firstgid="397" source="Block3.tsx"/>
  <layer id="1" name="Tile Layer 1" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYKA+SAbiFCBOJUNvHBDHA3ECmXYnAnESDe2VZGJgkGIiwwIaAmLcTihcuBkZGHiAmJeRPDegmy8LNEcOiOXRzKMkbRiQ6bblQLwCiFcC8SogXg3Ea4B4LVR8HRlmTgPiqVjwNPKciNUsGB41DwEAfg4jQg==
+   eJzt0M0NQEAQhuHZvaIAErSgIv9Ksi34V4DqfAcikQ1rws0kz2UP705mIaLFgOmYtK56MSSQMnsZ5B/u50oiT77XM50nN9PN3V0sQWSDIxjLafo+OgGEp14BJVSMPyLmbg200EEPA4wwbe8zo6mg1lC8FbWt3d87ZgWcqEYH
   </data>
  </layer>
 </map>

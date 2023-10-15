@@ -2,17 +2,17 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-13 13:10:03
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 10:20:22
+ * @Last Modified time: 2023-10-14 21:39:48
  */
 
-#ifndef __AnimatedGraphic__
-#define __AnimatedGraphic__
+#ifndef __AnimatedGraphic_h__
+#define __AnimatedGraphic_h__
 
 #include <iostream>
 
 #include "GameObjectSDL.h"
-#include "LoaderParams.h"
 #include "GameObjectFactory.h"
+#include "LoaderParams.h"
 
 class AnimatedGraphic : public GameObjectSDL
 {

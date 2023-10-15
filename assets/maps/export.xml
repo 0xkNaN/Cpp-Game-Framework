@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="Block1" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="198" columns="18">
+  <image source="blocks1.png" width="614" height="376"/>
+ </tileset>
+ <tileset firstgid="199" name="Block2" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="198" columns="18">
+  <image source="blocks2.png" width="614" height="376"/>
+  <tile id="141" probability="0"/>
+ </tileset>
+ <tileset firstgid="397" name="Block3" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="198" columns="18">
+  <image source="blocks3.png" width="614" height="376"/>
+ </tileset>
+ <layer id="1" name="Tile Layer 1" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0M0NQEAQhuHZvaIAErSgIv9Ksi34V4DqfAcikQ1rws0kz2UP705mIaLFgOmYtK56MSSQMnsZ5B/u50oiT77XM50nN9PN3V0sQWSDIxjLafo+OgGEp14BJVSMPyLmbg200EEPA4wwbe8zo6mg1lC8FbWt3d87ZgWcqEYH
+  </data>
+ </layer>
+</map>

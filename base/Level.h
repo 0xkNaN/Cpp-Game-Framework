@@ -2,17 +2,19 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-14 13:25:59
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 19:21:44
+ * @Last Modified time: 2023-10-14 21:37:02
  */
 
-#ifndef __LEVEL__
-#define __LEVEL__
+#ifndef __Level_h__
+#define __Level_h__
 
 #include <iostream>
 #include <vector>
 
-#include "LevelParser.h"
 #include "Layer.h"
+#include "LevelParser.h"
+
+class TileLayer;
 
 struct Tileset
 {
@@ -46,4 +48,4 @@ private:
   std::vector<Layer *> layers;
 };
 
-#endif /* __LEVEL__ */
+#endif

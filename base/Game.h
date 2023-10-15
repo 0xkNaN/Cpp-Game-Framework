@@ -2,17 +2,16 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-08 17:39:26
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:57:47
+ * @Last Modified time: 2023-10-14 21:12:33
  */
 
-#ifndef __Game__
-#define __Game__
+#ifndef __Game_h__
+#define __Game_h__
 
 #include <iostream>
 #include <SDL2/SDL.h>
 
 #include "GameStateMachine.h"
-#include "GameObjectFactory.h"
 
 class Game
 {
@@ -34,6 +33,9 @@ public:
   bool running() { return isRunning; }
   void quit() { isRunning = false; }
 
+  int getGameWidth() { return gameWidth; }
+  int getGameHeight() { return gameHeight; }
+
   SDL_Renderer *getRenderer() const { return renderer; }
   GameStateMachine *getStateMachine() const { return gameStateMachine; }
 
@@ -42,6 +44,7 @@ private:
 
   static Game *instance;
   bool isRunning;
+  int gameWidth, gameHeight;
 
   SDL_Window *window = nullptr;
   SDL_Renderer *renderer = nullptr;

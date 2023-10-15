@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-08 21:44:18
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:59:31
+ * @Last Modified time: 2023-10-14 20:40:02
  */
 
 #ifndef __TEXTURE_MANAGER__
@@ -25,7 +25,10 @@ public:
   }
 
   bool load(SDL_Renderer *renderer, std::string name, std::string id);
+
   void draw(SDL_Renderer *renderer, std::string id, int x, int y, int w, int h, int currRow, int currFrame, SDL_RendererFlip flip = SDL_FLIP_NONE);
+  void drawTile(SDL_Renderer *renderer, std::string id, int margin, int spacing, int x, int y, int w, int h, int currRow, int currFrame, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
   void clearTexture(std::string textureId);
 
 private:

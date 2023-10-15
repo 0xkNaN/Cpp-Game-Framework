@@ -5,8 +5,8 @@
  * @Last Modified time: 2023-10-14 09:39:49
  */
 
-#ifndef __MenuState__
-#define __MenuState__
+#ifndef __MenuState_h__
+#define __MenuState_h__
 
 #include <vector>
 

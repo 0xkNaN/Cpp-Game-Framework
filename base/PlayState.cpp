@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-12 21:00:09
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 10:17:38
+ * @Last Modified time: 2023-10-14 22:11:41
  */
 
 #include "PlayState.h"
@@ -11,7 +11,7 @@
 
 #include "PauseState.h"
 #include "GameOverState.h"
-
+#include "Level.h"
 #include "Player.h"
 #include "Enemy.h"
 
@@ -43,6 +43,8 @@ void PlayState::update()
 
 void PlayState::render()
 {
+  level->render();
+
   for (int i = 0; i < gameObjects.size(); i++)
   {
     gameObjects[i]->draw();
@@ -51,7 +53,11 @@ void PlayState::render()
 
 bool PlayState::onEnter()
 {
-  //? Parse State from Data File
+  //? Parse Level
+  LevelParser levelParser;
+  level = levelParser.parseLevel("assets/maps/export.xml");
+
+  //? Parse State
   StateParser stateParser;
   stateParser.parseState("test.xml", playId, &textureIdList, &gameObjects);
 

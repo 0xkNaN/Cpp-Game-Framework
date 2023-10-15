@@ -2,11 +2,11 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-12 20:39:03
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-14 02:21:38
+ * @Last Modified time: 2023-10-14 21:21:21
  */
 
-#ifndef __GameState__
-#define __GameState__
+#ifndef __GameState_h__
+#define __GameState_h__
 
 #include <iostream>
 #include <string>

@@ -2,7 +2,7 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-08 21:47:35
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:59:42
+ * @Last Modified time: 2023-10-14 20:50:05
  */
 
 #include "TextureManager.h"
@@ -34,6 +34,21 @@ void TextureManager::draw(SDL_Renderer *renderer, std::string id, int x, int y, 
   srcRect.h = desRect.h = h;
   srcRect.x = w * currFrame;
   srcRect.y = h * (currRow - 1); //? Rows starts at 1;
+  desRect.x = x;
+  desRect.y = y;
+
+  SDL_RenderCopyEx(renderer, this->textureMap[id], &srcRect, &desRect, 0, 0, flip);
+}
+
+void TextureManager::drawTile(SDL_Renderer *renderer, std::string id, int margin, int spacing, int x, int y, int w, int h, int currRow, int currFrame, SDL_RendererFlip flip)
+{
+  SDL_Rect srcRect;
+  SDL_Rect desRect;
+
+  srcRect.w = desRect.w = w;
+  srcRect.h = desRect.h = h;
+  srcRect.x = margin + (spacing + w) * currFrame;
+  srcRect.y = margin + (spacing + h) * currRow;
   desRect.x = x;
   desRect.y = y;
 

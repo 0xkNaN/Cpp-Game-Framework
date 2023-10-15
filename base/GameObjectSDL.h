@@ -2,18 +2,17 @@
  * @Author: Hassen Rmili
  * @Date:   2023-10-10 23:01:48
  * @Last Modified by:   Hassen Rmili
- * @Last Modified time: 2023-10-13 23:58:24
+ * @Last Modified time: 2023-10-14 21:36:42
  */
 
-#ifndef __GAMEOBJECT_SDL__
-#define __GAMEOBJECT_SDL__
+#ifndef __GameObjectSDL_h__
+#define __GameObjectSDL_h__
 
 #include "SDL2/SDL.h"
 
 #include "GameObject.h"
-#include "LoaderParams.h"
-
 #include "Vector2D.h"
+#include "LoaderParams.h"
 
 class GameObjectSDL : public GameObject
 {
